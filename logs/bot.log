@@ -892,3 +892,98 @@ Traceback (most recent call last):
     async def process_page_callback(callback_query: types.CallbackQuery):
                                                     ^^^^^
 NameError: name 'types' is not defined. Did you mean: 'type'? Or did you forget to import 'types'
+2024-08-30 18:35:37,423 - __main__ - INFO - Бот запускається...
+2024-08-30 18:35:37,695 - core.module - INFO - Завантажено модуль: pinger
+2024-08-30 18:35:37,695 - __main__ - ERROR - Виникла неочікувана помилка: module 'types' has no attribute 'CallbackQuery'
+Traceback (most recent call last):
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\bot.py", line 61, in <module>
+    asyncio.run(main())
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\bot.py", line 43, in main
+    setup_handlers(router, bot, module_manager, admin_checker, group_settings)
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\handlers\command_handlers.py", line 156, in setup_handlers
+    async def process_page_callback(callback_query: types.CallbackQuery):
+                                                    ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'types' has no attribute 'CallbackQuery'
+2024-08-30 18:36:26,281 - __main__ - INFO - Бот запускається...
+2024-08-30 18:36:26,550 - core.module - INFO - Завантажено модуль: pinger
+2024-08-30 18:36:26,551 - __main__ - INFO - Починається опитування...
+2024-08-30 18:36:26,551 - aiogram.dispatcher - INFO - Start polling
+2024-08-30 18:36:26,696 - aiogram.dispatcher - INFO - Run polling for bot @TetraCore_bot id=7234216697 - 'TetraCore'
+2024-08-30 18:36:29,801 - aiogram.event - INFO - Update id=649081687 is not handled. Duration 171 ms by bot id=7234216697
+2024-08-30 18:36:29,801 - aiogram.event - ERROR - Cause exception while process update id=649081687 by bot id=7234216697
+ValidationError: 1 validation error for ReplyKeyboardMarkup
+keyboard
+  Field required [type=missing, input_value={'resize_keyboard': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.8/v/missing
+Traceback (most recent call last):
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\router.py", line 142, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\router.py", line 137, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\router.py", line 170, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\router.py", line 142, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\router.py", line 137, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\router.py", line 162, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\handlers\command_handlers.py", line 139, in menu_command_handler
+    keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\site-packages\pydantic\main.py", line 193, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ReplyKeyboardMarkup
+keyboard
+  Field required [type=missing, input_value={'resize_keyboard': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.8/v/missing
+2024-08-30 18:36:32,999 - aiogram.event - INFO - Update id=649081688 is handled. Duration 109 ms by bot id=7234216697
+2024-08-30 18:36:38,389 - aiogram.dispatcher - INFO - Polling stopped
+2024-08-30 18:36:38,633 - __main__ - INFO - Бот зупинено
+2024-08-30 18:36:38,633 - aiogram.dispatcher - INFO - Polling stopped for bot @TetraCore_bot id=7234216697 - 'TetraCore'
+2024-08-30 18:36:38,634 - __main__ - INFO - Бот зупинено вручну

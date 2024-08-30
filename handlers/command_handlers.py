@@ -1,6 +1,6 @@
 import os
 import json
-from aiogram import Router, Bot
+from aiogram import Router, Bot, types
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from aiogram.fsm.context import FSMContext
@@ -77,6 +77,10 @@ def setup_handlers(router: Router, bot: Bot, module_manager: ModuleManager, admi
     async def menu_command_handler(message: Message) -> None:
         modules_path = "modules/"
         
+        if not os.path.exists(modules_path):
+            await message.answer("Директорія з модулями не знайдена.")
+            return
+        
         total_modules = 0
         pro_modules = 0
         pro_plus_modules = 0
@@ -91,25 +95,30 @@ def setup_handlers(router: Router, bot: Bot, module_manager: ModuleManager, admi
             if os.path.isdir(module_dir):
                 module_info_path = os.path.join(module_dir, "module_info.json")
                 if os.path.exists(module_info_path):
-                    with open(module_info_path, "r") as f:
-                        module_info = json.load(f)
-                        total_modules += 1
-                        category = module_info.get("category", "Інше")
-                        access_level = module_info.get("access_level", "free")
-                        
-                        if access_level == "pro":
-                            pro_modules += 1
-                        elif access_level == "pro_plus":
-                            pro_plus_modules += 1
+                    try:
+                        with open(module_info_path, "r") as f:
+                            module_info = json.load(f)
+                    except json.JSONDecodeError:
+                        await message.answer(f"Файл {module_info_path} містить помилки і не може бути прочитаний.")
+                        continue
+                    
+                    total_modules += 1
+                    category = module_info.get("category", "Інше")
+                    access_level = module_info.get("access_level", "free")
+                    
+                    if access_level == "pro":
+                        pro_modules += 1
+                    elif access_level == "pro_plus":
+                        pro_plus_modules += 1
 
-                        if category == "Ігри":
-                            game_modules += 1
-                        elif category == "Групові функції":
-                            group_modules += 1
-                        elif category == "Корисні інструменти":
-                            utility_modules += 1
-                        else:
-                            other_modules += 1
+                    if category == "Ігри":
+                        game_modules += 1
+                    elif category == "Групові функції":
+                        group_modules += 1
+                    elif category == "Корисні інструменти":
+                        utility_modules += 1
+                    else:
+                        other_modules += 1
         
         # Формуємо повідомлення з інформацією про модулі
         menu_message = (
