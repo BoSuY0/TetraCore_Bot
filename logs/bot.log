@@ -850,3 +850,45 @@ inline_keyboard
 2024-08-30 18:10:43,509 - __main__ - INFO - Бот зупинено
 2024-08-30 18:10:43,509 - aiogram.dispatcher - INFO - Polling stopped for bot @TetraCore_bot id=7234216697 - 'TetraCore'
 2024-08-30 18:10:43,510 - __main__ - INFO - Бот зупинено вручну
+2024-08-30 18:29:24,537 - __main__ - INFO - Бот запускається...
+2024-08-30 18:29:24,807 - core.module - INFO - Завантажено модуль: pinger
+2024-08-30 18:29:24,807 - __main__ - ERROR - Виникла неочікувана помилка: module 'types' has no attribute 'CallbackQuery'
+Traceback (most recent call last):
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\bot.py", line 61, in <module>
+    asyncio.run(main())
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\bot.py", line 43, in main
+    setup_handlers(router, bot, module_manager, admin_checker, group_settings)
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\handlers\command_handlers.py", line 157, in setup_handlers
+    async def process_page_callback(callback_query: types.CallbackQuery):
+                                                    ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'types' has no attribute 'CallbackQuery'
+2024-08-30 18:33:04,573 - __main__ - INFO - Бот запускається...
+2024-08-30 18:33:04,848 - core.module - INFO - Завантажено модуль: pinger
+2024-08-30 18:33:04,849 - __main__ - ERROR - Виникла неочікувана помилка: name 'types' is not defined
+Traceback (most recent call last):
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\bot.py", line 61, in <module>
+    asyncio.run(main())
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\bot.py", line 43, in main
+    setup_handlers(router, bot, module_manager, admin_checker, group_settings)
+  File "C:\Users\BoSuY\Desktop\Bot\TetraCore\handlers\command_handlers.py", line 155, in setup_handlers
+    async def process_page_callback(callback_query: types.CallbackQuery):
+                                                    ^^^^^
+NameError: name 'types' is not defined. Did you mean: 'type'? Or did you forget to import 'types'
